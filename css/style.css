@@ -1,0 +1,246 @@
+:root {
+    --primary-light: rgb(224, 77, 33);
+    --primary-dark: rgb(88, 61, 52);
+    --dark: rgb(104, 75, 66);
+    --light: #ddd1ae;
+    --shadow: 0 1px 5px rgb(36, 14, 6);  
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    color: var(--dark);
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    background: var(--primary-light);
+    margin: 30px;
+}
+
+.btn {
+    background: var(--primary-dark);
+    color: var(--primary-light);
+    padding: 0.5rem 1.2rem;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    height: 100vh;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas:
+    "header header header"
+    "menu menu hero"
+    "main main main"
+    "image image image"
+    "banner banner banner"
+}
+.header {
+    grid-area: header;
+}
+
+.menu {
+    grid-area: menu;
+}
+
+.hero {
+    grid-area: hero;
+}
+
+.main {
+    grid-area: main;
+}
+
+.banner {
+    grid-area: banner;
+}
+
+.extra {
+    grid-area: extra;
+}
+
+.image {
+    grid-area: image;
+}
+
+.main-nav ul {
+    display: grid;
+    gap: 20px;
+    padding: 0;
+    list-style: none;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.main-nav a {
+    background: var(--light);
+    display: block;
+    text-decoration: none;
+    padding: 0.6rem;
+    text-align: center;
+    color: var(--primary-dark);
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    box-shadow: var(--shadow);
+    transition: 0.3s;
+}
+
+.top {
+    display: grid;
+    gap: 20px;
+    grid-template-areas: 
+    "showcase showcase top-box-a"
+    "showcase showcase top-box-b"
+    "showcase showcase top-box-c";
+    animation: moveIn 3s;
+}
+
+.showcase {
+    grid-area: showcase;
+    min-height: 400px;
+    padding: 3rem;
+    background-image: url('../img/13.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    box-shadow: var(--shadow);
+}
+
+@keyframes moveIn {
+    0% {left: -50px;}
+    100% {left: 0px;}
+}
+
+.main-nav a:hover {
+    background: var(--primary-dark);
+    color: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+.showcase h1 {
+    font-size: 4rem;
+    margin-bottom: 0;
+    color: var(--light);
+}
+
+.showcase p {
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--light);
+}
+
+.top-box {
+    background: var(--primary-light);
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+}
+
+.CompanyIntro {
+    background: var(--primary-light);
+    display: grid;
+    align-items: center;
+    box-shadow: var(--shadow);
+    padding: 6px;
+}
+
+.top-box-a {
+    grid-area:top-box-a;
+}
+
+.top-box-b {
+    grid-area:top-box-b;
+}
+
+.top-box-c {
+    grid-area:top-box-c;
+}
+
+.top-box .btn:hover {
+    transform: translateY(-3px);
+}
+
+.portfolio {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.portfolio img {
+    width: 100%;
+    transition: 0.5s ease-in-out;
+    box-shadow: var(--shadow);
+}
+
+.portfolio img:hover {
+    outline: 1.1rem solid rgba(182, 182, 182, 0.39);
+    transform: scale(1.1)
+}
+
+footer {
+    margin: 2rem;
+    background: var(--dark);
+    color: var(--light);
+    text-align: center;
+    padding: 1.4rem;
+}
+
+.icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: #3a8536;
+    width: 2.4rem;
+    height: 2.4rem;
+    font-size: 1.4rem;
+    transition: 0.6s;
+}
+
+.icons a:hover {
+    background-color: #3a8536;
+    color: #ffffff;
+    border-radius: 60%;
+}
+
+@media (max-width: 550px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px 100px 100px 100px 100px 100px;
+        grid-template-areas:
+        "header"
+        "menu"
+        "hero"
+        "main"
+        "image"
+        "banner"
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-rows: repeat(6, 1fr);
+        grid-template-areas:
+        "header header header"
+        "menu menu menu"
+        "hero hero hero"
+        "main main main"
+        "images images images"
+        "banner banner banner"
+    }
+}
